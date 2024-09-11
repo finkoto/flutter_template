@@ -101,6 +101,38 @@ You can start building your Flutter application on top of this template project.
 the existing code to fit your application's requirements. The template project provides an example
 structure and initial code to get you started quickly.
 
+### Setting the launcher icon
+
+After setting up the configuration, all that is left to do is run the package:
+
+```
+dart run icons_launcher:create
+```
+
+If you name your configuration file something other than icons_launcher.yaml or pubspec.yaml you
+will need to specify the name of the file when running the package.
+
+```
+dart run icons_launcher:create --path icons_launcher.yaml
+```
+
+### Setting the splash screen
+
+After adding your settings to `pubspec.yaml`, run the following command in the terminal:
+
+```
+dart run flutter_native_splash:create
+```
+
+When the package finishes running, your splash screen is ready.
+
+(Optionally), If you added your config to a separate YAML file instead of `pubspec.yaml`, just add
+--path with the command in the terminal:
+
+```
+dart run flutter_native_splash:create --path=flutter_native_splash.yaml
+```
+
 ## Testing
 
 The `test/` directory contains files and examples to help you write tests for your Flutter
