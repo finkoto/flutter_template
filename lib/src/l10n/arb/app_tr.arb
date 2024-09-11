@@ -1,0 +1,7 @@
+{
+  "@@locale": "tr",
+  "appTitle": "Flutter Şablon",
+  "@appTitle": {
+    "description": "Uygulamanın başlığı"
+  }
+}

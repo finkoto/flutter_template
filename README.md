@@ -75,7 +75,7 @@ The project structure follows a common Flutter project layout:
         ── mocks/
         ── models/
         ── repositories/
-     ── localization/
+     ── l10n/
      ── ui/
         ── common/
         ── sample_feature/
