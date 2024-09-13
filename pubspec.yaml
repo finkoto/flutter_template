@@ -1,24 +1,29 @@
 name: flutter_template
 description: "A new Flutter Blueprint Template attempts to provides some best practices, while avoiding weighing in on business logic."
-
-# Prevent accidental publishing to pub.dev.
 publish_to: 'none'
-
-version: 1.0.0+1
+version: 1.0.0
 
 environment:
   sdk: ^3.5.2
 
 dependencies:
+  desktop_window: ^0.4.0
   equatable: ^2.0.5
   flutter:
     sdk: flutter
+  flutter_animate: ^4.5.0
   flutter_bloc: ^8.1.6
+  flutter_displaymode: ^0.6.0
   flutter_lints: ^4.0.0
   flutter_localizations:
     sdk: flutter
   flutter_native_splash: ^2.4.1
+  get_it: ^7.7.0
+  internet_connection_checker: ^2.0.0
   intl: ^0.19.0
+  logging: ^1.2.0
+  shared_preferences: ^2.3.2
+  sized_context: ^1.0.0+4
   very_good_analysis: ^6.0.0
 
 dev_dependencies:

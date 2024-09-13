@@ -5,10 +5,6 @@ part 'login_event.dart';
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc() : super(LoginState.initial()) {}
+  LoginBloc() : super(LoginState.initial());
 
-  @override
-  Future<void> close() {
-    return super.close();
-  }
 }

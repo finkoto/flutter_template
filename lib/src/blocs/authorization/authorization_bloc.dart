@@ -5,10 +5,6 @@ part 'authorization_event.dart';
 part 'authorization_state.dart';
 
 class AuthorizationBloc extends Bloc<AuthorizationEvent, AuthorizationState> {
-  AuthorizationBloc() : super(AuthorizationState.initial()) {}
+  AuthorizationBloc() : super(AuthorizationState.initial());
 
-  @override
-  Future<void> close() {
-    return super.close();
-  }
 }
