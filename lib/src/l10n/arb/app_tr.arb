@@ -3,5 +3,24 @@
   "appTitle": "Flutter Şablon",
   "@appTitle": {
     "description": "Uygulamanın başlığı"
-  }
+  },
+  "appModalsButtonOk": "Tamam",
+  "appModalsButtonCancel": "İptal",
+  "circleButtonsSemanticClose": "Kapat",
+  "circleButtonsSemanticBack": "Geri",
+  "fullscreenImageViewerSemanticFull": "tam ekran görüntü, açıklama yok",
+  "semanticsNext": "Sonraki {title}",
+  "@semanticsNext": {"placeholders": {"title": {}}},
+  "themeModeSystem": "Sistem Teması",
+  "themeModeLight": "Açık Tema",
+  "themeModeDark": "Koyu Tema",
+  "pageNotFoundTitle": "Çıkmaz Sokak",
+  "pageNotFoundMessage": "Oops! Aradığınız sayfa bulunamadı.",
+  "pageNotFoundBackButton": "Ana Sayfaya Dön",
+  "introContent1Title": "Doğanın sesleriyle \nnazikçe uyanın",
+  "introContent1SubTitle": "Doğanın rahatlatıcı sesleriyle zihninizi rahatlatın ve iç huzuru yaratın.",
+  "introContent2Title": "Nefes egzersizleriyle \nzihninizi temizleyin",
+  "introContent2SubTitle": "50'den fazla nefes egzersiziyle stresinizi ve kaygılarınızı eritin.",
+  "introContent3Title": "Yatma vakti hikayeleriyle \nuykuya dalın",
+  "introContent3SubTitle": "Rahatlatıcı aktiviteler ve sakin uyku vakti hikayeleriyle dinlendirici bir gece uykusunun tadını çıkarın."
 }

@@ -9,7 +9,7 @@ class JsonFileLogic with ThrottledSaveLoadMixin {
 
   @override
   void copyFromJson(Map<String, dynamic> value) {
-    changeMe.value = value['change_me'] ?? false;
+    changeMe.value = value.containsKey('change_me');
   }
 
   @override

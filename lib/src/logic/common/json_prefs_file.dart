@@ -10,7 +10,9 @@ class JsonPrefsFile {
   Future<Map<String, dynamic>> load() async {
     final p = (await SharedPreferences.getInstance()).getString(name);
     //print('loaded: $p');
-    return Map<String, dynamic>.from(jsonDecode(p ?? '{}'));
+    return Map<String, dynamic>.from(
+      jsonDecode(p ?? '{}') as Map<String, dynamic>,
+    );
   }
 
   Future<void> save(Map<String, dynamic> data) async {

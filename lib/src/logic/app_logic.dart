@@ -6,8 +6,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_displaymode/flutter_displaymode.dart';
-import 'package:flutter_template/main.dart';
+import 'package:flutter_template/src/bootstrap.dart';
 import 'package:flutter_template/src/logic/common/platform_info.dart';
+import 'package:flutter_template/src/router.dart';
+import 'package:flutter_template/src/ui/common/modals/fullscreen_video_viewer.dart';
+import 'package:flutter_template/src/ui/common/utils/page_routes.dart';
 
 class AppLogic {
   Size _appSize = Size.zero;
@@ -39,7 +42,7 @@ class AppLogic {
     debugPrint('bootstrap start...');
     // Set min-sizes for desktop apps
     if (PlatformInfo.isDesktop) {
-      await DesktopWindow.setMinWindowSize($styles.sizes.minAppSize);
+      await DesktopWindow.setMinWindowSize($theme.sizes.minAppSize);
     }
 
     if (kIsWeb) {
@@ -65,11 +68,9 @@ class AppLogic {
     // native splash screen)
     final showIntro = settingsLogic.hasCompletedOnboarding.value == false;
     if (showIntro) {
-      // TODO(suatkeskin): add routing support.
-      // appRouter.go(ScreenPaths.intro);
+      appRouter.go(AppRouterPaths.intro);
     } else {
-      // TODO(suatkeskin): add routing support.
-      // appRouter.go(initialDeeplink ?? ScreenPaths.home);
+      appRouter.go(initialDeeplink ?? AppRouterPaths.home);
     }
   }
 
@@ -78,13 +79,9 @@ class AppLogic {
     Widget child, {
     bool transparent = false,
   }) async {
-    return null;
-    // TODO(suatkeskin): add routing support.
-    /*
     return Navigator.of(context).push<T>(
-      PageRoutes.dialog<T>(child, duration: $styles.times.pageTransition),
+      PageRoutes.dialog<T>(child, duration: $theme.times.pageTransition),
     );
-     */
   }
 
   /// Called from the UI layer once a MediaQuery has been obtained

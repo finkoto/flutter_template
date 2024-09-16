@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/src/router.dart';
 import 'package:flutter_template/src/ui/models/models.dart';
 import 'package:flutter_template/src/ui/sample_feature/sample_item_details_view.dart';
-import 'package:flutter_template/src/ui/settings/settings_view.dart';
 
 /// Displays a list of SampleItems.
 class SampleItemListView extends StatelessWidget {
@@ -26,7 +26,7 @@ class SampleItemListView extends StatelessWidget {
               // Navigate to the settings page. If the user leaves and returns
               // to the app after it has been killed while running in the
               // background, the navigation stack is restored.
-              Navigator.restorablePushNamed(context, SettingsView.routeName);
+              context.pushNamed(AppRouterPaths.settings);
             },
           ),
         ],

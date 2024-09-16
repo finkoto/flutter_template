@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/src/ui/settings/settings_controller.dart';
+import 'package:flutter_template/src/bootstrap.dart';
+import 'package:flutter_template/src/logic/logics.dart';
+import 'package:get_it_mixin/get_it_mixin.dart';
 
 /// Displays the various settings that can be customized by the user.
 ///
 /// When a user changes a setting, the SettingsController is updated and
 /// Widgets that listen to the SettingsController are rebuilt.
-class SettingsView extends StatelessWidget {
-  const SettingsView({super.key, required this.controller});
+class SettingsView extends StatelessWidget with GetItMixin {
+  SettingsView({super.key});
 
-  static const routeName = '/settings';
-
-  final SettingsController controller;
+  Brightness? _brightness() => watchX((SettingsLogic s) => s.currentBrightness);
 
   @override
   Widget build(BuildContext context) {
@@ -24,23 +24,23 @@ class SettingsView extends StatelessWidget {
         //
         // When a user selects a theme from the dropdown list, the
         // SettingsController is updated, which rebuilds the MaterialApp.
-        child: DropdownButton<ThemeMode>(
+        child: DropdownButton<Brightness>(
           // Read the selected themeMode from the controller
-          value: controller.themeMode,
+          value: _brightness(),
           // Call the updateThemeMode method any time the user selects a theme.
-          onChanged: controller.updateThemeMode,
-          items: const [
+          onChanged: (Brightness? value) =>
+              settingsLogic.currentBrightness.value = value,
+          items: [
             DropdownMenuItem(
-              value: ThemeMode.system,
-              child: Text('System Theme'),
+              child: Text($strings.themeModeSystem),
             ),
             DropdownMenuItem(
-              value: ThemeMode.light,
-              child: Text('Light Theme'),
+              value: Brightness.light,
+              child: Text($strings.themeModeLight),
             ),
             DropdownMenuItem(
-              value: ThemeMode.dark,
-              child: Text('Dark Theme'),
+              value: Brightness.dark,
+              child: Text($strings.themeModeDark),
             ),
           ],
         ),

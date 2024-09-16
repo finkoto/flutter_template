@@ -3,5 +3,28 @@
   "appTitle": "Flutter Template",
   "@appTitle": {
     "description": "The title of the application"
-  }
+  },
+  "appModalsButtonOk": "Ok",
+  "appModalsButtonCancel": "Cancel",
+  "circleButtonsSemanticClose": "close",
+  "circleButtonsSemanticBack": "back",
+  "fullscreenImageViewerSemanticFull": "full screen image, no description available",
+  "semanticsNext": "Next {title}",
+  "@semanticsNext": {
+    "placeholders": {
+      "title": {}
+    }
+  },
+  "themeModeSystem": "System Theme",
+  "themeModeLight": "Light Theme",
+  "themeModeDark": "Dark Theme",
+  "pageNotFoundTitle": "Dead End",
+  "pageNotFoundMessage": "Oops! The page you are looking for does not exist.",
+  "pageNotFoundBackButton": "Back to Home",
+  "introContent1Title": "Wake up gently \nwith sounds of nature",
+  "introContent1SubTitle": "Relax your mind and create inner peace with soothing sounds of nature.",
+  "introContent2Title": "Clear your mind \nwith breathing exercises",
+  "introContent2SubTitle": "Melt your stresses and anxieties away with 50+ breathing exercises.",
+  "introContent3Title": "Fall asleep \nwith bedtime stories",
+  "introContent3SubTitle": "Enjoy a restful night’s sleep with relaxing activities and calm bedtime stories."
 }

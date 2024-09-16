@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template/main.dart';
+import 'package:flutter_template/src/bootstrap.dart';
 import 'package:flutter_template/src/l10n/l10n.dart';
 import 'package:intl/intl_standalone.dart';
 
