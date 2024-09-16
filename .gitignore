@@ -27,6 +27,7 @@ desktop.ini
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
+/devtools_options.yaml
 .packages
 .pub-cache/
 .pub/
