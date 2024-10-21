@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 class PlatformInfo {
   static const _desktopPlatforms = [
@@ -33,8 +32,8 @@ class PlatformInfo {
 
   static bool get isIOS => defaultTargetPlatform == TargetPlatform.iOS;
 
-  static Future<bool> get isConnected async =>
-      InternetConnectionChecker().hasConnection;
+  // TODO(skeskin): internet_connection_checker_plus implement edilecek
+  static Future<bool> get isConnected async => true;
 
   static Future<bool> get isDisconnected async => (await isConnected) == false;
 }
