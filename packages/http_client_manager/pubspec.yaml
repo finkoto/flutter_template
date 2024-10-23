@@ -1,0 +1,12 @@
+name: http_client_manager
+description: A http client manager for Dart.
+version: 0.0.1+1
+publish_to: none
+
+environment:
+  sdk: ^3.5.2
+
+dependencies:
+  dio: ^5.7.0
+  flutter_secure_storage: ^9.2.2
+  fresh_dio: ^0.4.2
