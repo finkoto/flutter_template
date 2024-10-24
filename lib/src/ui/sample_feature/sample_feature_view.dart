@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_template/src/router.dart';
 import 'package:flutter_template/src/ui/models/models.dart';
 import 'package:flutter_template/src/ui/sample_feature/sample_item_details_view.dart';
+import 'package:http_client_manager/http_client_manager.dart';
 
 /// Displays a list of SampleItems.
 class SampleItemListView extends StatelessWidget {
@@ -17,6 +18,18 @@ class SampleItemListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: TextButton(
+        onPressed: () async {
+          print('**** STARTING REQUEST ****');
+          try {
+            await HttpClientManager().dioClient.get('https://mock.codes/401');
+          } on Exception {
+            print('**** FAILED ****');
+          }
+          print('**** ENDED REQUEST ****');
+        },
+        child: const Text('Test Request for 401'),
+      ),
       appBar: AppBar(
         title: const Text('Sample Items'),
         actions: [

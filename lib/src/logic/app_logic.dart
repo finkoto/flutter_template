@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:desktop_window/desktop_window.dart';
+import 'package:dio/dio.dart';
+import 'package:dio_smart_retry/dio_smart_retry.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -11,6 +13,7 @@ import 'package:flutter_template/src/logic/common/platform_info.dart';
 import 'package:flutter_template/src/router.dart';
 import 'package:flutter_template/src/ui/common/modals/fullscreen_video_viewer.dart';
 import 'package:flutter_template/src/ui/common/utils/page_routes.dart';
+import 'package:http_client_manager/http_client_manager.dart';
 
 class AppLogic {
   Size _appSize = Size.zero;
@@ -57,6 +60,29 @@ class AppLogic {
 
     // Settings
     await settingsLogic.load();
+
+    final httpClient = await HttpClientManager().init(
+      options: BaseOptions(
+          contentType: Headers.jsonContentType,
+          baseUrl: 'https://api.github.com',
+          connectTimeout: const Duration(seconds: 13),
+          receiveTimeout: const Duration(seconds: 13),
+          sendTimeout: const Duration(seconds: 13),
+          headers: {
+            'authorization': '',
+          }),
+      refreshTokenConfig: const RefreshTokenConfig(
+        refreshUrl: 'https://test.oncharge.xyz/api/identity/token',
+        refreshQueryParameters: {},
+      ),
+    )
+      ..addInterceptors([
+        LogInterceptor(responseBody: true, requestBody: true),
+      ]);
+
+    httpClient.addInterceptors([
+      RetryInterceptor(dio: httpClient.dioClient.dio),
+    ]);
 
     // Localizations
     await localeLogic.load();
