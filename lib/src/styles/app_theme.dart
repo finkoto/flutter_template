@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_template/src/styles/app_style.dart';
+import 'package:flutter_template/src/styles/theme/material_theme_colors.dart';
+import 'package:flutter_template/src/styles/theme/material_theme_text_styles.dart';
 
 /// App theme.
 class AppTheme {
@@ -69,6 +72,69 @@ class AppTheme {
   bool get isMobile =>
       defaultTargetPlatform == TargetPlatform.android ||
       defaultTargetPlatform == TargetPlatform.iOS;
+}
+
+class MaterialThemeData {
+  static ThemeData get themeData {
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: _colorScheme,
+      textTheme: _textTheme.apply(
+        bodyColor: MaterialThemeColors.seedWhite,
+        displayColor: MaterialThemeColors.seedWhite,
+        decorationColor: MaterialThemeColors.seedWhite,
+      ),
+      tabBarTheme: _tabBarTheme,
+      dialogTheme: _dialogTheme,
+      bottomNavigationBarTheme: _bottomNavigationBarTheme,
+    );
+  }
+
+  static ColorScheme get _colorScheme {
+    return ColorScheme.fromSeed(
+      seedColor: MaterialThemeColors.seedBlue,
+      surface: MaterialThemeColors.seedBlack,
+    );
+  }
+
+  static TextTheme get _textTheme {
+    final isMobile = defaultTargetPlatform == TargetPlatform.android ||
+        defaultTargetPlatform == TargetPlatform.iOS;
+
+    return isMobile
+        ? MaterialThemeTextStyles.mobile.textTheme
+        : MaterialThemeTextStyles.desktop.textTheme;
+  }
+
+  static TabBarTheme get _tabBarTheme {
+    const yellow = MaterialThemeColors.seedYellow;
+    const grey = MaterialThemeColors.seedGrey50;
+
+    return const TabBarTheme(
+      labelColor: yellow,
+      indicatorColor: yellow,
+      unselectedLabelColor: grey,
+      dividerColor: grey,
+      indicator: UnderlineTabIndicator(
+        borderSide: BorderSide(color: yellow),
+      ),
+    );
+  }
+
+  static DialogTheme get _dialogTheme {
+    const black = MaterialThemeColors.seedBlack;
+
+    return const DialogTheme(
+      backgroundColor: black,
+      surfaceTintColor: Colors.transparent,
+    );
+  }
+
+  static BottomNavigationBarThemeData get _bottomNavigationBarTheme {
+    return const BottomNavigationBarThemeData(
+      backgroundColor: Colors.transparent,
+    );
+  }
 }
 
 @immutable
